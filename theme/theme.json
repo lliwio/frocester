@@ -1,0 +1,107 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "background",
+					"color": "#ffffff",
+					"name": "Background"
+				},
+				{
+					"slug": "foreground",
+					"color": "#2c3b46",
+					"name": "Foreground"
+				},
+				{
+					"slug": "yellow",
+					"color": "#fad604",
+					"name": "Yellow"
+				},
+				{
+					"slug": "secondary",
+					"color": "#15803d",
+					"name": "Secondary"
+				},
+				{
+					"slug": "tertiary",
+					"color": "#0369a1",
+					"name": "Tertiary"
+				}
+			]
+		},
+		"typography": {
+            "fontSizes": [
+                {
+                    "name": "Small",
+                    "slug": "small",
+                    "size": "1rem"
+                },
+                {
+                    "name": "Medium",
+                    "slug": "medium",
+                    "size": "1.35rem"
+                },
+                {
+                    "name": "Large",
+                    "slug": "large",
+                    "size": "2rem"
+                },
+                {
+                    "name": "XLarge",
+                    "slug": "xlarge",
+                    "size": "2.85rem"
+                },
+                {
+                    "name": "XXlarge",
+                    "slug": "xxlarge",
+                    "size": "3.5rem"
+                }
+            ]
+        },
+		"layout": {
+            "contentSize": "50rem",
+            "wideSize": "90rem"
+        },
+		"spacing": {
+            "customPadding": true,
+            "customMargin": true,
+            "units": [ "px", "em", "rem", "%" ],
+            "padding": {
+                "small": "0.5rem",
+                "medium": "1rem",
+                "large": "2rem"
+            },
+            "margin": {
+                "small": "0.5rem",
+                "medium": "1rem",
+                "large": "2rem"
+            }
+        }
+	},
+	"styles": {
+        "blocks": {
+            "core/button": {
+                "color": {
+                    "background": "var(--wp--preset--color--yellow)",
+                    "text": "#000"
+                },
+                "typography": {
+                    "fontWeight": "bold"
+                },
+                "border": {
+                    "radius": "0px"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "1rem",
+                        "bottom": "1rem",
+                        "left": "2rem",
+                        "right": "2rem"
+                    }
+                }
+            }
+        }
+    }
+}
