@@ -115,3 +115,21 @@
 .sub-page-nav > .wp-block-group {
 	@apply !py-0
 }
+
+.wp-container-core-group-is-layout-6.biz {
+	@apply grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+}
+
+.wp-container-core-group-is-layout-6.biz > .wp-block-group {
+	@apply mb-6 lg:mb-0
+}
+
+.widget {
+	.wp-container-core-group-is-layout-11 {
+		@apply grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+	}
+
+	.wp-container-core-group-is-layout-11 > .wp-block-group {
+		@apply mb-6 lg:mb-0
+	}
+}
