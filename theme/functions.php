@@ -295,7 +295,6 @@ function frocester_enqueue_google_fonts() {
 }
 add_action( 'wp_enqueue_scripts', 'frocester_enqueue_google_fonts' );
 
-// Add this to your theme's functions.php or a custom plugin
 
 function cust_logos_shortcode() {
     ob_start(); // Start output buffering
@@ -360,13 +359,13 @@ function filter_posts_by_category() {
     // Check if category and post_type are passed
     if( isset($_POST['category']) && isset($_POST['post_type']) ) {
         $category = sanitize_text_field( $_POST['category'] );
-        $post_type = sanitize_text_field( $_POST['post_type'] ); // Get post type from request
+        $post_type = sanitize_text_field( $_POST['post_type'] );
 
         // WP Query arguments
         $args = array(
-            'post_type'      => $post_type, // Use the post type passed from AJAX
+            'post_type'      => $post_type,
             'post_status'    => 'publish',
-            'posts_per_page' => -1, // or the number of posts you want to display
+            'posts_per_page' => -1,
         );
 
         // If a category is selected, add it to the query
@@ -378,7 +377,7 @@ function filter_posts_by_category() {
                 // For projects, use a custom taxonomy, for example, 'project_category'
                 $args['tax_query'] = array(
                     array(
-                        'taxonomy' => 'project_category', // Replace with your custom taxonomy
+                        'taxonomy' => 'project_category',
                         'field'    => 'slug',
                         'terms'    => $category,
                     ),
@@ -418,4 +417,18 @@ add_action('wp_ajax_nopriv_filter_posts', 'filter_posts_by_category');
 add_action( 'init', 'register_acf_blocks' );
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/blocks/news' );
+	register_block_type( __DIR__ . '/blocks/accreds' );
 }
+
+function enqueue_swiper_assets() {
+    // Enqueue Swiper CSS
+    wp_enqueue_style( 'swiper-css', get_template_directory_uri() . '/css/swiper-bundle.min.css', array());
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_swiper_assets' );
+
+function enqueue_swiper_assets_for_editor() {
+    // Enqueue Swiper CSS for the editor
+    wp_enqueue_style( 'swiper-css-editor', get_template_directory_uri() . '/css/swiper-bundle.min.css', array(), '8.0.0' );
+}
+
+add_action( 'enqueue_block_editor_assets', 'enqueue_swiper_assets_for_editor' );

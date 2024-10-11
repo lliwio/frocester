@@ -76,3 +76,20 @@ jQuery(document).ready(function($) {
         });
     });
 });
+
+import Swiper from 'swiper/bundle';
+document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.carousel-swiper', {
+        slidesPerView: 8,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+});

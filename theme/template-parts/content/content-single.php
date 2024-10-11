@@ -49,8 +49,4 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php frocester_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-
 </article><!-- #post-${ID} -->

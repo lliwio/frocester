@@ -1,0 +1,15 @@
+{
+    "name": "acf/accreds",
+    "title": "Accreds",
+    "description": "An accreditations block using Swiper",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["accreditations"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "accreds.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

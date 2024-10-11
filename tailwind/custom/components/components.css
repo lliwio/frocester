@@ -87,3 +87,31 @@
 .how-we-work-block {
 	@apply min-h-[250px]
 }
+
+.wp-block-navigation__container {
+	li {
+		@apply ml-4
+	}
+
+	a {
+		@apply no-underline border-b border-transparent
+	}
+
+	li.current-menu-item {
+		a {
+			@apply border-yellow
+		}
+	}
+}
+
+.sub-page-nav {
+	@apply !py-4;
+
+	img {
+		@apply my-0
+	}
+}
+
+.sub-page-nav > .wp-block-group {
+	@apply !py-0
+}
