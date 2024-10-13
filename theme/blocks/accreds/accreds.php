@@ -10,9 +10,9 @@
                 while (have_rows('logos')) : the_row();
                     $image = get_sub_field('image');
                 ?>
-                <div class="swiper-slide bg-white pb-4 px-8 min-h-[380px]">
+                <div class="swiper-slide bg-white pb-4 px-8">
                     <?php if ($image) : ?>
-                        <img class="h-24 w-24 object-cover" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        <img class="h-24 object-contain" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                     <?php else : ?>
                        
                     <?php endif; ?>
@@ -24,12 +24,8 @@
                 ?>
             </div>
         </div>
-
-        <div class="relative !top-12 mt-6 mb-12 max-w-48 mx-auto">
-            <div class="swiper-button-next static border border-white hover:bg-coral hover:!border-coral !w-12 !h-12 text-md p-4"></div>
-            <div class="swiper-pagination !-top-4"></div>
-            <div class="swiper-button-prev static border border-white hover:bg-coral hover:!border-coral !w-12 !h-12 text-md p-4"></div>
-        </div>
+        <div class="swiper-button-next static !top-24 !right-0 xl:!-right-8 !w-6 !h-6 p-4"></div>
+        <div class="swiper-button-prev static !top-24 !left-0 xl:!-left-8 !w-6 !h-6 p-4"></div>
     </div>
 <?php else : ?>
     <p>No rows found in repeater.</p>

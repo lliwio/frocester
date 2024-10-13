@@ -80,7 +80,7 @@ jQuery(document).ready(function($) {
 import Swiper from 'swiper/bundle';
 document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('.carousel-swiper', {
-        slidesPerView: 8,
+        slidesPerView: 6,
         spaceBetween: 30,
         loop: true,
         navigation: {
@@ -90,6 +90,20 @@ document.addEventListener('DOMContentLoaded', function () {
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
+        },
+        breakpoints: {
+            375: {
+                slidesPerView: 2,
+            },
+            640: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 4,
+            },
+            960: {
+                slidesPerView: 5,
+            },
         },
     });
 });

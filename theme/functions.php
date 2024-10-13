@@ -221,7 +221,7 @@ class Tailwind_Walker_Nav_Menu extends Walker_Nav_Menu {
     // Add classes to ul sub-menus
     function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = str_repeat("\t", $depth);
-        $classes = 'sub-menu static xl:absolute block xl:hidden group-hover:block bg-yellow p-0 m-0 z-50 min-w-[200px]'; // Tailwind classes for dropdown with min-width
+        $classes = 'sub-menu static xl:absolute block xl:hidden group-hover:block bg-yellow p-0 m-0 z-50 min-w-[220px]'; // Tailwind classes for dropdown with min-width
         $output .= "\n$indent<ul class=\"$classes\">\n";
     }
 
