@@ -90,21 +90,21 @@ module.exports = {
 								padding: '0.1rem 3rem 2rem 7rem',
 								marginLeft: '0',
 								marginRight: '0',
-								color: theme('colors.yellow'), // Text color
+								color: theme('colors.yellow'),
 								borderLeftWidth: '0',
 								backgroundColor: theme('colors.foreground'),
 								
 								'&::before': {
-								  content: '""',  // Empty content for the pseudo-element
+								  content: '""',
 								  position: 'absolute',
-								  left: '2rem',      // Position the quote mark to the left
-								  top: '0rem',       // Adjust for vertical placement
-								  width: '50px',  // Width of the SVG
-								  height: '50px', // Height of the SVG
-								  backgroundImage: `url('../theme/img/quote.svg')`, // Path to your SVG
-								  backgroundSize: 'contain', // Ensure the SVG fits the container
+								  left: '2rem',
+								  top: '0rem',
+								  width: '50px',
+								  height: '50px',
+								  backgroundImage: `url('./img/quote.svg')`,
+								  backgroundSize: 'contain',
 								  backgroundRepeat: 'no-repeat',
-								  backgroundPosition: 'center', // Center the SVG
+								  backgroundPosition: 'center',
 								},
 
 								cite: {
