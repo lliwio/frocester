@@ -137,3 +137,7 @@
 .swiper-button-next:after, .swiper-button-prev:after {
 	@apply !text-lg !text-foreground
 }
+
+.prose-frocester a:where(:not(.wp-element-button)):hover {
+	@apply bg-yellow;
+}
