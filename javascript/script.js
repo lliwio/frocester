@@ -32,10 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const logosContainer = document.querySelector('.logos');
-    const firstClone = logosContainer.children[0].cloneNode(true);
-    logosContainer.appendChild(firstClone);
+    const logosContainers = document.querySelectorAll('.logos');
+
+    logosContainers.forEach(logosContainer => {
+        const firstClone = logosContainer.children[0].cloneNode(true);
+        logosContainer.appendChild(firstClone);
+    });
 });
+
 
 jQuery(document).ready(function($) {
     $('.filter-button').on('click', function(e) {
