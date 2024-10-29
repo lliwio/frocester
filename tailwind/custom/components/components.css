@@ -110,6 +110,10 @@
 	img {
 		@apply my-0
 	}
+
+	a:hover {
+		@apply !bg-foreground
+	}
 }
 
 .sub-page-nav > .wp-block-group {
