@@ -14,13 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const menu = document.getElementById('primary-menu');
     const body = document.body;
 
-    if (menuToggle && menu) {  // Ensure both elements exist
+    if (menuToggle && menu) { 
         menuToggle.addEventListener('click', function() {
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !expanded);
             menu.classList.toggle('hidden');
 
-            // Lock or unlock body scroll
             if (expanded) {
                 body.classList.remove('overflow-hidden');
             } else {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const logosContainers = document.querySelectorAll('.logos');
@@ -40,24 +38,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
 jQuery(document).ready(function($) {
     $('.filter-button').on('click', function(e) {
         e.preventDefault();
 
-        // Remove active class from all buttons
         $('.filter-button').removeClass('active');
         
-        // Add active class to the clicked button
         $(this).addClass('active');
         
-        // Show the skeleton UI and hide the content
         $('#skeleton-grid').show();
         $('#content-grid').hide();
 
-        // Get the category and post type
         var category = $(this).data('category');
-        var postType = $(this).data('post-type'); // You need to set this in your HTML
+        var postType = $(this).data('post-type');
 
         $.ajax({
             url: ajaxfilter.ajaxurl,
@@ -65,14 +58,14 @@ jQuery(document).ready(function($) {
             data: {
                 action: 'filter_posts',
                 category: category,
-                post_type: postType // Pass the post type as well
+                post_type: postType
             },
             success: function(response) {
-                // Delay showing the content and hiding the skeleton
+                
                 setTimeout(function() {
                     $('#content-grid').html(response).show();
                     $('#skeleton-grid').hide();
-                }, 500); // Adjust delay as needed
+                }, 500); 
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
