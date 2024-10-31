@@ -143,5 +143,5 @@
 }
 
 .prose-frocester a:where(:not(.wp-element-button)):hover {
-	@apply bg-yellow;
+	@apply bg-[#FFDD00];
 }
