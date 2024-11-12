@@ -21,7 +21,7 @@
 
 	<div class="bg-[#25323D]">
 		<div class="max-w-wide mx-auto px-4 2xl:px-0 text-white py-4">
-			&copy; Frocester Group Ltd. Reg No. 11478421
+			&copy; Frocester Group Ltd. Reg No. 11478421 | Made by <a href="https://kavacomms.agency">Kava</a>
 		</div>
 	</div>
 
