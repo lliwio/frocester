@@ -49,23 +49,40 @@ get_header();
         </div>
 
         <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-24">
-            <?php
-            if ( have_posts() ) {
+        <?php
+// Define arguments to exclude posts with the "Engineering" term
+$args = array(
+    'post_type'      => 'project', // Your custom post type
+    'tax_query'      => array(
+        array(
+            'taxonomy' => 'project_category', // Your custom taxonomy
+            'field'    => 'name', // Filter by term name
+            'terms'    => 'Engineering', // Exclude this term
+            'operator' => 'NOT IN', // Exclude posts with this term
+        ),
+    ),
+);
 
-                // Load posts loop.
-                while ( have_posts() ) {
-                    the_post();
-                    
-                    // Use a specific template for project posts
-                    get_template_part( 'template-parts/content/content-project-card' );
-                }
-            } else {
+// Custom query to exclude "Engineering"
+$query = new WP_Query( $args );
 
-                // If no content, include the "No posts found" template.
-                get_template_part( 'template-parts/content/content', 'none' );
+if ( $query->have_posts() ) {
+    // Load posts loop
+    while ( $query->have_posts() ) {
+        $query->the_post();
 
-            }
-            ?>
+        // Use a specific template for project posts
+        get_template_part( 'template-parts/content/content-project-card' );
+    }
+
+    // Restore original post data after custom query
+    wp_reset_postdata();
+} else {
+    // If no content, include the "No posts found" template
+    get_template_part( 'template-parts/content/content', 'none' );
+}
+?>
+
         </div>
     </main><!-- #main -->
 </section><!-- #primary -->
