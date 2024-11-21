@@ -14,22 +14,30 @@ get_header();
     <main class="max-w-wide mx-auto px-4 2xl:px-0 py-6 gap-12" id="main">
         <h2 class="text-3xl font-bold mt-12 mb-6">Our projects</h2>
         <p class="text-xl">Working in partnership with our customers we’ve delivered a wide range of successful projects in each of our service areas.</p>
-       <div id="category-filter" class="my-12">
-            <?php 
-            // Get custom taxonomy terms (assuming 'project_category' is the taxonomy for your projects)
-            $terms = get_terms( array(
-                'taxonomy' => 'project_category', // Change to your custom taxonomy
-                'hide_empty' => true,
-            ));
+        <div id="category-filter" class="my-12 flex flex-wrap gap-4 xl:gap-8">
+    <?php 
+    // Get custom taxonomy terms (assuming 'project_category' is the taxonomy for your projects)
+    $terms = get_terms( array(
+        'taxonomy' => 'project_category', // Change to your custom taxonomy
+        'hide_empty' => true,
+    ));
 
-            if ( !empty($terms) && !is_wp_error($terms) ) :
-                foreach ( $terms as $term ) : ?>
-                    <button class="filter-button border border-1 border-foreground px-4 py-2 text-lg font-bold xl:mr-8 hover:bg-foreground hover:text-yellow" data-category="<?php echo esc_attr($term->slug); ?>" data-post-type="project">
-                        <?php echo esc_html($term->name); ?>
-                    </button>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
+    if ( !empty($terms) && !is_wp_error($terms) ) :
+        foreach ( $terms as $term ) :
+            // Exclude the term "Engineering"
+            if ( $term->name === 'Engineering' ) {
+                continue;
+            }
+    ?>
+            <button class="filter-button border border-1 border-foreground px-4 py-2 text-lg font-bold hover:bg-foreground hover:text-yellow" data-category="<?php echo esc_attr($term->slug); ?>" data-post-type="project">
+                <?php echo esc_html($term->name); ?>
+            </button>
+    <?php 
+        endforeach;
+    endif;
+    ?>
+</div>
+
 
         <!-- Skeleton UI (Hidden by default) -->
         <div id="skeleton-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" style="display:none;">

@@ -19,12 +19,12 @@ get_header();
 		<main class="max-w-wide mx-auto px-4 2xl:px-0 py-6 gap-12" id="main">
 			<h2 class="text-3xl font-bold mt-12 mb-6">Frocester Group news</h2>
 			<p class="text-xl">Below you’ll find our latest company news, product launches and updates from our staff.</p>
-			<div id="category-filter" class="my-12">
+			<div id="category-filter" class="my-12 flex flex-wrap gap-4 xl:gap-8">
 				<?php 
 				// Get all categories
 				$categories = get_categories();
 				foreach ($categories as $category) : ?>
-					<button class="filter-button border border-1 border-foreground px-4 py-2 text-lg font-bold xl:mr-8 hover:bg-foreground hover:text-yellow" data-category="<?php echo esc_attr($category->slug); ?>" data-post-type="post">
+					<button class="filter-button border border-1 border-foreground px-4 py-2 text-lg font-bold hover:bg-foreground hover:text-yellow" data-category="<?php echo esc_attr($category->slug); ?>" data-post-type="post">
 					<?php echo esc_html($category->name); ?>
 					</button>
 				<?php endforeach; ?>
