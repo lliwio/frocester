@@ -75,6 +75,10 @@ module.exports = {
 									color: theme('colors.yellow'),
 								},
 							},
+							'ul': {
+							listStyleType: 'square',
+							paddingLeft: '1rem !important',
+							},
 							'.has-foreground-background-color .wp-block-button__link': {
 								border: `1px solid ${theme('colors.yellow')}`,
 							},

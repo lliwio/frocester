@@ -417,6 +417,7 @@ add_action('wp_ajax_nopriv_filter_posts', 'filter_posts_by_category');
 add_action( 'init', 'register_acf_blocks' );
 function register_acf_blocks() {
     register_block_type( __DIR__ . '/blocks/news' );
+	register_block_type( __DIR__ . '/blocks/jobs' );
 	register_block_type( __DIR__ . '/blocks/accreds' );
 }
 

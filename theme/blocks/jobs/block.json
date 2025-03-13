@@ -1,0 +1,15 @@
+{
+    "name": "acf/jobs",
+    "title": "Jobs",
+    "description": "A jobs block that pulls in all jobs",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["jobs"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "jobs.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
