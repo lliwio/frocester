@@ -145,3 +145,7 @@ footer#colophon .biz > .wp-block-group {
 .prose-frocester a:where(:not(.wp-element-button)):hover {
 	@apply bg-[#FFDD00];
 }
+
+.group:hover .animate-slide-left {
+    animation-play-state: paused;
+}

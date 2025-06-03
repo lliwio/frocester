@@ -22,7 +22,44 @@ get_header();
             ?>
         </div>
 
-       
+        <aside class="w-full lg:w-[30%] lg:pl-8">
+    <div class="bg-gray-100 p-4 xl:sticky top-12">
+        <h4 class="bg-foreground text-yellow uppercase font-bold inline-block p-2 mb-2">More</h4>
+        
+        <?php
+    $recent_jobs = new WP_Query(array(
+        'post_type' => 'jobs', 
+        'posts_per_page' => 3, 
+        'post__not_in' => array(get_the_ID()), 
+        'ignore_sticky_posts' => 1,
+    ));
+
+    if ($recent_jobs->have_posts()) {
+        echo '<ul class="recent-jobs-list">';
+        while ($recent_jobs->have_posts()) : $recent_jobs->the_post();
+            ?>
+            <li class="mb-2 flex items-start space-x-4">
+                <?php if (has_post_thumbnail()) : ?>
+                    <div class="w-16 h-16 flex-shrink-0 mt-2">
+                        <?php the_post_thumbnail('thumbnail', ['class' => 'w-full h-full object-cover']); ?>
+                    </div>
+                <?php endif; ?>
+                <a href="<?php the_permalink(); ?>" class="text-lg hover:underline flex-1">
+                    <?php the_title(); ?>
+                </a>
+            </li>
+            <?php
+        endwhile;
+        echo '</ul>';
+    } else {
+        echo '<p>No recent job posts available.</p>';
+    }
+
+    // Reset Post Data
+    wp_reset_postdata();
+?>
+    </div>
+</aside>
 
     </main><!-- #main -->
 	</section><!-- #primary -->

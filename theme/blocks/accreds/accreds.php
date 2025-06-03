@@ -21,10 +21,17 @@ if ($title): // Check if the field has a value
                 // Loop through the carousel repeater fields
                 while (have_rows('logos')) : the_row();
                     $image = get_sub_field('image');
+                    $link = get_sub_field('link'); // Get the link field
                 ?>
                 <div class="inline w-64 px-2">
                     <?php if ($image) : ?>
-                        <img loading="lazy" class="mx-2 inline w-44" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        <?php if ($link) : ?>
+                            <a class="hover:bg-transparent" href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer">
+                                <img loading="lazy" class="mx-2 inline w-44" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            </a>
+                        <?php else : ?>
+                            <img loading="lazy" class="mx-2 inline w-44" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                        <?php endif; ?>
                     <?php else : ?>
                        
                     <?php endif; ?>
